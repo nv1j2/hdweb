@@ -17,6 +17,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=1"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link rel="stylesheet" href="${path }/css/ht_cmn.css" type="text/css"/>
     <script src="${path }/js/jquery.js" type="text/javascript"></script>
     <script src="${path }/js/cmn.js" type="text/javascript"></script>

@@ -153,8 +153,7 @@ public class Crud {
 	}
 	public void setR(Retrieve r) {
 		this.r = r;
-	}
-	public Delete getD() {
+	}	public Delete getD() {
 		return d;
 	}
 	public void setD(Delete d) {

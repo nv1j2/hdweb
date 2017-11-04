@@ -16,7 +16,7 @@
 <head>
 <title>tjpcms - 首页</title>
 <%@ include file="inc/meta.jsp"%>
-
+<link rel="stylesheet" href="${path}/css/headimg.css" type="text/css">
 <style>
 	*{font-family: "Microsoft YaHei","sans-serif"};
 	a{-webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s;}
@@ -93,11 +93,84 @@
 </head>
 <body>
 	<%@ include file="inc/head.jsp"%>
+	<script src="${path}/js/jquery.headimg.js" type="text/javascript"></script>
+	<script src="${path}/js/headSlider.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	    var show_slider2_grid = 'true';
+	    var show_slider_title = 'true';
+	    var slider_autoslide = '5000';
+	</script>
 	<div class="sycontent">
-		<div class="kaic ">
-			<strong>欢迎下载使用tjpcms</strong>
-			<p></p>
+
+		<div id="slider-1">
+		    <div id="slider-content">
+		        <c:forEach var="i" begin = "0" end = "5">
+	                <c:forEach var="j" begin = "0" end = "2">
+		                <div class="cube" id="slider_${i}_${j}" style="left:${i * 156}px;top:${j*156}px; width:157px; height:157px;">
+		                    <div class="inner_a" style="background-image:url(${path}/img/head/${sliderPhoto[0].zdxpy}); background-position: -${i * 156}px -${j*156}px; width:156px; height:156px;"></div>
+		                    <div class="inner_b" style="background-image:url(${path}/img/head/${sliderPhoto[0].zdxpy}); background-position: -${i * 156}px -${j*156}px; width:156px; height:156px;"></div>
+		                </div>
+	                </c:forEach>
+		        </c:forEach>
+	               
+		     <div class="slider_info_holder">
+		        <div class="info_line">
+		            <a style="opacity: 1; font-size: 48px;">灵梦御所</a>
+		        </div>
+		    </div>
+		   <div class="clear"></div>
+		   <ul style="opacity: 1;" class="slider_nav">
+		   <li class="">0</li><li class="slider_nav_active">1</li><li class="">2</li><li class="">3</li><li class="">4</li></ul>
+		   </div>
+		    <div id="slider-feed">
+		                    <div class="slide">
+		                <img class="slide_source" alt="" src="${path}/img/head/111.jpg">
+		                <div class="transition">random</div>
+		                <div class="title">灵梦御所</div>
+		                <div class="lightbox">0</div>
+		                <div class="link_url">/wordpress/</div>
+		                <div class="s_description"></div>
+		            </div>
+		                <div class="slide">
+		                <img class="slide_source" alt="" src="${path}/img/head/222.jpg">
+		                <div class="transition">random</div>
+		                <div class="title">Charlotte夏洛特</div>
+		                <div class="lightbox">0</div>
+		                <div class="link_url">/wordpress/</div>
+		                <div class="s_description"></div>
+		            </div>
+		                    <div class="slide">
+		                <img class="slide_source" alt="" src="${path}/img/head/333.jpg">
+		                <div class="transition">random</div>
+		                <div class="title">干物妹！小埋</div>
+		                <div class="lightbox">0</div>
+		                <div class="link_url">/wordpress/</div>
+		                <div class="s_description"></div>
+		            </div>
+		                    <div class="slide">
+		                <img class="slide_source" alt="" src="${path}/img/head/444.jpg">
+		                <div class="transition">random</div>
+		                <div class="title">OVERLORD</div>
+		                <div class="lightbox">0</div>
+		                <div class="link_url">/wordpress/</div>
+		                <div class="s_description"></div>
+		            </div>
+		            <div class="slide">
+		                <img class="slide_source" alt="" src="${path}/img/head/555.jpg">
+		                <div class="transition">random</div>
+		                <div class="title">To Love-Ru Darkness 2nd</div>
+		                <div class="lightbox">0</div>
+		                <div class="link_url">/wordpress/</div>
+		                <div class="s_description"></div>
+		            </div>
+		            <div class="slider-img-count">5</div>
+		            
+		    </div>
 		</div>
+        <div class="kaic ">
+            <strong>欢迎下载使用tjpcms</strong>
+            <p></p>
+        </div>
 		<div class="xiazai  ">
 			<ul class="anleft">
 				<li style=""><a target="_blank" class="lsbb lefttip" href="${path}/zatan_detail.dhtml?id=303">下载太慢？</a></li>
@@ -107,10 +180,14 @@
 			<div class="anniu1 icon-xiazai animated pulse" style="display: inline-block;">
 				&nbsp;&nbsp;&nbsp;<label>立即下载</label>
 			</div>
+			
 			<ul class="anright">
 				<li><a target="_blank" class="zmyong" href="${path}/guanyu.dhtml">有什么用？</a></li>
 				<li><a target="_blank" class="zmyong" href="${path}/huanjing.dhtml">遇到问题？</a></li>
 				<li><a target="_blank" class="lsbb" href="${path}/bbgx.dhtml">历史版本</a></li>
+                    <c:forEach items="${sliderPhoto}" var="sliderPhotoItem" varStatus="sta">
+                        <li ><a href="" target="_blank">${sliderPhotoItem.zdxmc}</a></li>
+                    </c:forEach>
 			</ul>
 		</div>
 		<div class="tip">
@@ -189,7 +266,7 @@
 
 			//为实时配置内容几个字加上说明
 			var kaic = '${META_DES}'
-			var sscnt = "实时配置增删改查";
+			var sscnt = "航盾网站";
 			var ssidx = kaic.indexOf(sscnt)
 			if (ssidx!=-1){
 				kaic = kaic.substring(0,ssidx)+"<a target='_blank'  class='sspznr' href='${path }/jiandan_detail.dhtml?id=159'>"+sscnt+"</a>"

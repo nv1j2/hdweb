@@ -11,7 +11,7 @@ public class CL {
 	public static final String GGY="tjpcms - 最懂你的cms";//广告语
 	public static final String GGY2="国产Java类cms良心之作";//广告语
 	public static final String YUMING="www.tjpcms.com";//域名
-	public static final String META_DES="tjpcms是一套基于java的cms解决方案，开源免费。其独有的实时配置增删改查的功能，是其区别于同类cms的最大特点，也是最大优势，极大减少了重复劳动。懂jsp即可实现快速建站、静态化等，学习成本极低。文档齐全，持续更新，有需要的下载使用吧！";
+	public static final String META_DES="航盾网站";
 
 	public static final String ses_admin= "ses_admin";
 	public static final String ses_ssousr= "ses_ssousr";

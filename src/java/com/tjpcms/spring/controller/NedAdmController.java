@@ -274,7 +274,7 @@ public class NedAdmController {
 	@RequestMapping(value = "zdx")
 	public ModelAndView zdx(HttpServletRequest request, HttpServletResponse response) throws InterruptedException, UnsupportedEncodingException {
 		String id = request.getParameter("id");
-		String mc = request.getParameter("mc");
+		String mc = new String(request.getParameter("mc").getBytes("iso-8859-1"), "utf-8");
 		Crud o = new Crud(_e,request, "tjpcms_zdx",Hanshu.zzBread("返回上级字典表 - "+mc,"zdb.dhtml", "字典项"));
 		o.getR().setExwhere("pid="+id);//要写在setList之前
 		o.getAev().setHook_befgx("com.tjpcms.common.Hook.lmmcBaocunbef");
@@ -291,6 +291,7 @@ public class NedAdmController {
 				{"字典表名称",AevZdType.TEXT.toString(),mc},
 				{"字典项名称","zdxmc","required unique#pid="+id+":字典项名称不能重复"},
 				{"字典项值","zdxpy","required unique#pid="+id,"onfocus=fn_py(this)=pinyin.js"},//第四种类型了，带js的
+				{"字典项参数","zdxval"},
 				{"排序","px"},
 				{"备注","bz"},
 				{"pid",AevZdType.HIDDEN.toString(),id}

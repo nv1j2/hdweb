@@ -83,7 +83,7 @@ public class IndexController {
 		getCmn(request, map);
 		map.put("bb", _e.obj("select val,left(gx,10)gx from tjpcms_cfg where py='BB'"));
 		map.put("ljs", _e.r("select * from tjpcms_yqlj order by px "));
-		
+		map.put("sliderPhoto",_e.r("select * from ((select id from tjpcms_zdb where py = 'sytp') d left join (select * from tjpcms_zdx) x on x.pid = d.id )order by x.px desc"));
 		
 		return new ModelAndView("index", map);
 	}

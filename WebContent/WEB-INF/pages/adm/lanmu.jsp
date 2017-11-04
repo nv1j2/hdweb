@@ -383,7 +383,6 @@
 				layer.msg("请填写排序！");
 				return;
 			}
-			
 			//其他一些校验
 
 			//url,url_s的值
@@ -406,7 +405,7 @@
 				layer.alert('系统错误，请联系管理员！', { icon:2, title:'错误'});
 				return;
 			};
-			var qturl = $("input[name='url_d'").val();
+			var qturl = $("input[name='url_d']").val();
 			var bcurl_s = '${path}'+"/static/lanmu/"+qturl+".html";
 			if (!isEmptyStr(qturl)) $("input[name='url']").val(bcurl_s);//默认url填静态的
 			//var donl2v = $("select[name='donly2']").val();
@@ -442,6 +441,7 @@
 		          datatype: "text",
 		          beforeSend:function(){layer.msg('正在保存......', {time:-1,icon: 16,shade: 0.3, scrollbar:false});},  
 		          success:function(ret){
+		        	  console.log("x2");
 						if (ret=="0"){
 							var n = getSelNode();
 							refreshTree(n.id, '保存成功！');

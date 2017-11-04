@@ -479,7 +479,7 @@ public class Hanshu {
 	public static ModelAndView aev(HttpServletRequest request, EntMapper entMapper){
 		String t = request.getParameter("t");
 		String id = request.getParameter("id");
-		Crud o = (Crud)request.getSession(false).getAttribute(request.getParameter("u"));
+		Crud o = (Crud) request.getSession(false).getAttribute(request.getParameter("u"));
 		if ((!"0".equals(t) && !"1".equals(t) && !"2".equals(t)) || o==null || (!"0".equals(t) && StringUtils.isEmpty(id))){
 			return new ModelAndView("adm/welcome", null);
 		}
